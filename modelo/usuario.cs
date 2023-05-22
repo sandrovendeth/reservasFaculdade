@@ -9,7 +9,8 @@ public class Usuario{
     private string? cpf;
     private string? profissao;
     private string? dataCriacao;
-
+    public bool logged = false;
+    private string? password;
 
 
 
@@ -103,10 +104,18 @@ public class Usuario{
     {
         this.dataCriacao = dataCriacao;
     }
+    public string? getPassword()
+    {
+        return this.password;
+    }
+    public void setpassword(string? password) 
+    {
+        this.password = password;
+    }   
     
     public Usuario(){}
 
-    public Usuario(string? nome, string? tipo, string? dataNascimento, string? telefone, string? sexo, string? campus, string? matricula, string? cpf, string? profissao, string? dataCriacao, string? ativo) {
+    public Usuario(string? nome, string? tipo, string? dataNascimento, string? telefone, string? sexo, string? campus, string? matricula, string? cpf, string? profissao, string? dataCriacao, string? ativo, string? password) {
         this.nome = nome;
         this.tipo = tipo;
         this.dataNascimento = dataNascimento;
@@ -117,6 +126,17 @@ public class Usuario{
         this.cpf = cpf;
         this.profissao = profissao;
         this.dataCriacao = dataCriacao;
+        this.password = password;
 
     }
+    public bool isLogged(string matricula, string password)
+        {
+            if ((this.matricula == matricula) && (this.password == password))
+            {
+                this.logged = true;
+                return true;
+            }
+            return false;
+}
+
 }
